@@ -1,0 +1,372 @@
+/* CSS Document */ /*****float-note**/
+.popup {
+	VISIBILITY: hidden;
+}
+
+.popup-man {
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	background: #1F3447;
+	filter: progid :     DXImageTransform .     Microsoft .  
+		  Alpha(opacity =       50, style =       0);
+	-moz-opacity: 0.5;
+}
+
+.popup-man-operate {
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	background: #1F3447;
+	filter: progid :     DXImageTransform .     Microsoft .  
+		  Alpha(opacity =       30, style =       0);
+	-moz-opacity: 0.3;
+}
+
+.popup-man-tabloading {
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	background: #ffffff;
+	filter: progid :     DXImageTransform .     Microsoft .  
+		  Alpha(opacity =       1, style =       0);
+	-moz-opacity: 0.01;
+}
+
+#float-loading {
+	width: 333px;
+	height: 122px;
+	position: absolute;
+	margin-left: -168px;
+	margin-top: -57px;
+	left: 50%;
+	top: 50%;
+	z-index: 50;
+}
+
+.float-con {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.float-con .pdright {
+	height: 100%;
+	padding-right: 3px;
+}
+
+.float-con .pdright .con-tent {
+	border: 1px solid #000;
+	background: url(../images/loading.jpg) #4B6C8D;
+	height: 100%;
+}
+
+.float-con .pdright .exit {
+	border: 1px solid #000;
+	background: #fff;
+	height: 100%;
+}
+
+.float-con .pdright .exit .exit-title {
+	margin: 1px;
+	background: url(../images/exit-title-bg.gif) repeat-x;
+	height: 25px;
+	padding: 5px 10px 0px 10px;
+}
+
+.float-con .pdright .exit .exit-title .exit-title-left {
+	float: left;
+	color: #234967;
+}
+
+.float-con .pdright .exit .exit-title .exit-title-right {
+	float: right;
+}
+
+.float-con .pdright .exit .exit-content {
+	color: #ff6600;
+	font-weight: bold;
+	text-align: center;
+	margin: 10px 0px 10px 0px;
+}
+
+.float-con .pdright .exit .exit-content input {
+	background: url(../images/buttom_bg1.gif) no-repeat;
+	cursor: pointer;
+	width: 72px;
+	height: 20px;
+	border: none;
+	color: #395366;
+	line-height: 17px;
+	padding-top: 3px;
+}
+
+.loading-line-bg {
+	margin: 62px 20px 0px 20px;
+	background: url(../images/load_lineBG.gif);
+	padding: 1px 0 1px 0;
+}
+
+.logoutmsg {
+	margin: 65px 20px 0px 20px;
+	padding-left: 58px;
+	font-weight: bold;
+}
+
+.logoutbuttom {
+	text-align: center;
+	padding: 7px 0 1px 0;
+}
+
+.logoutbuttom input {
+	height: 20px;
+	width: 60px;
+	color: #B8D3EB;
+	border: none;
+	text-align: center;
+	background: url(../images/out-bg.gif) no-repeat;
+	font-weight: normal;
+	cursor: pointer;
+	padding-top: 2px;
+}
+
+.loading-font {
+	text-align: center;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	height: 22px;
+}
+
+.loading-fonta {
+	text-align: right;
+	color: #B5C1CD;
+	padding-right: 6px;
+}
+
+.loading-fonta a {
+	color: #B5C1CD;
+	text-decoration: none;
+}
+
+.loading-fonta a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.float-con .pdright .float-bottom {
+	background: #000;
+	height: 3px;
+	margin-left: 3px;
+	filter: progid :     DXImageTransform .     Microsoft .  
+		  Alpha(opacity =       30, style =       0);
+	-moz-opacity: 0.3;
+}
+
+.float-right {
+	background: #000;
+	width: 1px;
+	border: 1px solid #1D3041;
+	height: 100%;
+	right: 0;
+	position: absolute;
+	margin-top: 3px;
+	filter: progid :     DXImageTransform .     Microsoft .  
+		  Alpha(opacity =       30, style =       0);
+	-moz-opacity: 0.3;
+	z-index: 49;
+}
+
+.float-exit {
+	width: 285px;
+	position: absolute;
+	margin-left: -116px;
+	margin-top: -58px;
+	left: 50%;
+	top: 50%;
+	z-index: 50;
+	border: 1px solid #9FB5C7;
+	background: url(../images/float_bigBg.gif) #FCFDFF no-repeat bottom
+		right;
+}
+
+.float-exit .exit-title {
+	background: url(../images/exit-title-bg.gif) repeat-x;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #CFD9E4;
+	margin-right: 1px;
+	height: 25px;
+	padding: 5px 10px 0px 10px;
+	cursor: move;
+}
+
+.float-exit .exit-title-left {
+	float: left;
+	color: #234967;
+}
+
+.float-exit .exit-title-right {
+	float: right;
+}
+
+.float-exit .exit-content {
+	color: #59768C;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 14px 0px 14px 0px;
+}
+
+.float-exit .exit-content2 {
+	text-align: center;
+	margin: 5px 0px 10px 0px;
+}
+
+.float-exit .exit-content2 input {
+	background: url(../images/pop_button.gif) no-repeat;
+	cursor: pointer;
+	width: 55px;
+	height: 20px;
+	border: none;
+	color: #213B4F;
+	line-height: 17px;
+	font-size: 12px;
+}
+
+.float-tif {
+	width: 233px;
+	height: 102px;
+	position: absolute;
+	margin-left: -116px;
+	margin-top: -51px;
+	left: 50%;
+	top: 50%;
+	z-index: 50;
+	border: 1px solid #9FB5C7;
+	background: url(../images/float_bigBg.gif) #FCFDFF repeat-y bottom right
+		;
+}
+
+.float-tif .exit-title {
+	background: url(../images/exit-title-bg.gif) repeat-x;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #CFD9E4;
+	margin-right: 1px;
+	height: 25px;
+	padding: 5px 10px 0px 10px;
+}
+
+.float-tif .exit-title-left {
+	float: left;
+	color: #234967;
+}
+
+.float-tif .exit-content {
+	color: #59768C;
+	text-align: center;
+	margin: 18px 0px 0px 0px;
+}
+
+.float-approve {
+	width: 285px;
+	position: absolute;
+	margin-left: -116px;
+	margin-top: -58px;
+	left: 50px;
+	top: 50px;
+	z-index: 50;
+	border: 1px solid #9FB5C7;
+	background: url(../images/float_bigBg.gif) #FCFDFF repeat-y bottom right
+		;
+}
+
+.float-approve .exit-title {
+	background: url(../images/exit-title-bg.gif) repeat-x;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #CFD9E4;
+	margin-right: 1px;
+	height: 25px;
+	padding: 5px 10px 0px 10px;
+	cursor: move;
+}
+
+.float-approve .exit-title-left {
+	float: left;
+	color: #234967;
+}
+
+.float-approve .exit-title-right {
+	float: right;
+}
+
+.float-approve .exit-content {
+	color: #59768C;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 6px 0px 10px 0px;
+}
+
+.float-approve .exit-content2 {
+	text-align: center;
+	margin: 4px 0px 10px 0px;
+}
+
+.float-approve .exit-content2 input {
+	background: url(../images/pop_button.gif) no-repeat;
+	cursor: pointer;
+	width: 55px;
+	height: 20px;
+	border: none;
+	color: #213B4F;
+	line-height: 17px;
+	font-size: 12px;
+}
+
+.pagingWrap {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.pagingTable td,.pagingTable th {
+	margin: 0;
+	padding: 0;
+}
+
+.containerTableStyle {
+	overflow: auto;
+	position: relative;
+	top: 0;
+	font-size: 12px;
+	border: 1px solid #333;
+	background: #FFF;
+	z-index: 900000;
+}
+
+.div_RightMenu {
+	z-index: 30000;
+	text-align: left;
+	cursor: default;
+	position: absolute;
+	background-color: #FAFFF8;
+	width: 160px;
+	height: auto;
+	border: 1px solid #333333;
+	display: none;
+	filter: progid : DXImageTransform . Microsoft .
+		Shadow(Color = #333333, Direction = 120, strength = 5);
+}
+
+.divMenuItem {
+	height: 17px;
+	color: Black;
+	font-family: ËÎÌו;
+	vertical-align: middle;
+	font-size: 10pt;
+	margin-bottom: 3px;
+	cursor: hand;
+	padding-left: 30px;
+	padding-top: 2px;
+}

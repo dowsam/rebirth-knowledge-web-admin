@@ -1,0 +1,12 @@
+<script type="text/javascript">
+ var mygrid = new dhtmlXGridObject('gridbox');
+ mygrid.setImagePath("${imagePath}");
+ mygrid.setHeader("${header}");
+ mygrid.setInitWidths("${initWidths}");
+ mygrid.setColumnIds("${columnIds}");
+ mygrid.setColAlign("${colAlign}");
+ mygrid.setColTypes("${colTypes}");
+ mygrid.setSkin("${skin}");
+ mygrid.setColSorting("${colSorting}");
+ mygrid.init();
+</script>

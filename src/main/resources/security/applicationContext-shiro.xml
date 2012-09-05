@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	default-lazy-init="true">
+	<description>Shiro Configuration</description>
+
+	<bean id="shiroDbRealm" class="cn.com.rebirth.knowledge.web.admin.realm.ExamJdbcRealm">
+		<property name="authorizationCachingEnabled" value="true" />
+	</bean>
+	<!-- 系统资源服务 -->
+	<bean id="resourceDetailService"
+		class="cn.com.rebirth.knowledge.web.admin.service.ResourceDetailServiceImpl" />
+	<bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+		<property name="authenticationListeners">
+			<list>
+				<bean
+					class="cn.com.rebirth.knowledge.web.admin.realm.SysUserAuthenticationListener" />
+			</list>
+		</property>
+		<property name="realms">
+			<list>
+				<ref bean="shiroDbRealm" />
+			</list>
+		</property>
+	</bean>
+	<!-- Shiro's main business-tier object for web-enabled applications -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="shiroCacheManager" />
+		<property name="authenticator" ref="authenticator" />
+	</bean>
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter"
+		class="cn.com.rebirth.knowledge.commons.security.DefinitionSourceShiroFilterFactoryBeanExt">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/index" />
+		<property name="unauthorizedUrl" value="/unauthorized" />
+		<property name="resourceDetailsService" ref="resourceDetailService" />
+		<property name="filterChainDefinitions">
+			<value>
+				/login**=anon
+				/css/**=anon
+				/images/**=anon
+				/js/**=anon
+				/** = authc
+			</value>
+		</property>
+	</bean>
+	<!-- 用户授权/认证信息Cache, 采用EhCache RMI集群 -->
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- AOP式方法级权限检查 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="cn.com.rebirth.knowledge.commons.security.AuthorizationAttributeSourceAdvisorExt">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<bean id="captchaService"
+		class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<property name="captchaEngine">
+			<bean class="cn.com.rebirth.core.web.jcaptcha.GMailEngine" />
+		</property>
+		<!-- 默认生成的图片180秒过期 , 可另行设置 <property name="minGuarantedStorageDelayInSeconds" 
+			value="180" /> -->
+	</bean>
+</beans>

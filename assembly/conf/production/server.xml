@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="9080" shutdown="SHUTDOWN">
+	<GlobalNamingResources>
+		<!--jndi config -->
+	</GlobalNamingResources>
+	<Service name="Catalina">
+		<Executor name="tomcatThreadPool" namePrefix="HTTP-8080-exec-"
+			maxThreads="400" minSpareThreads="10" maxIdleTime="60000" />
+		<Connector port="8080" protocol="HTTP/1.1" acceptCount="200"
+			keepAliveTimeout="5000" useBodyEncodingForURI="true" enableLookups="false"
+			compression="on" compressionMinSize="2048"
+			compressableMimeType="text/html,application/xhtml+xml,text/xml,text/css,text/javascript"
+			connectionTimeout="20000" redirectPort="8443" executor="tomcatThreadPool" />
+		<Connector port="7080" protocol="AJP/1.3" redirectPort="8443" />
+		<Engine name="Catalina" defaultHost="localhost" jvmRoute="node8080">
+			<Host name="localhost" appBase="webapps" unpackWARs="false"
+				autoDeploy="false" xmlValidation="false" xmlNamespaceAware="false">
+				<Context path="/${artifactId}" docBase="../webapp"
+					reloadable="false" />
+			</Host>
+		</Engine>
+	</Service>
+</Server>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<description>Email配置</description>
+
+	<!-- 邮件发送器 -->
+	<bean id="mailSender"
+		class="cn.com.rebirth.knowledge.web.admin.email.JavaMailSenderExt">
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<!-- 使用gmail smtp server的必须参数 -->
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 用于生成HTML邮件内容的Freemarker配置 -->
+	<bean id="freemarkerConfiguration"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="/templates/" />
+	</bean>
+
+	<!-- 文本邮件服务类 -->
+	<bean id="simpleMailService" class="cn.com.rebirth.core.email.SimpleMailService">
+		<property name="mailSender" ref="mailSender" />
+	</bean>
+
+	<!-- MIME邮件服务类 -->
+	<bean id="mimeMailService" class="cn.com.rebirth.core.email.MimeMailService">
+		<property name="mailSender" ref="mailSender" />
+		<property name="templateEngine">
+			<bean class="cn.com.rebirth.core.template.FreeMarkerTemplateEngine">
+				<constructor-arg index="0" ref="freemarkerConfiguration" />
+				<property name="path" value="/templates/" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 异步的邮件发送器 -->
+	<bean id="asyncJavaMailSender" class="cn.com.rebirth.core.email.AsyncJavaMailSender">
+		<property name="sendMailThreadPoolSize" value="3" />
+		<property name="mimeMailService" ref="mimeMailService" />
+	</bean>
+
+</beans>

@@ -1,0 +1,20 @@
+${gridContainer}
+<div id="${item.container}" style="width:300px;height:200px;display:none;"></div>
+<script type="text/javascript">
+${varScripts}
+var initEnblaed=false;
+function initGrid(){
+if(initEnblaed){return;}
+initEnblaed=true;
+var ${item.id}=new dhtmlXTreeObject("${item.container}", "${item.width?default("100%")}", "${item.height?default("100%")}", ${item.rootId?default(0)});
+${item.id}.setSkin("${item.skin?default("dhx_skyblue")}");
+${item.id}.setImagePath("${item.imagePath?default("/js/dhtmlx/imgs/csh_vista/")}");
+${item.id}.setDataMode("${item.dataMode}");
+<#if item.enableCheckBoxes>
+${item.id}.enableCheckBoxes(1);
+</#if>
+${item.id}.loadJSON("${url}",function(){
+	${clildContext}
+});
+}
+</script>

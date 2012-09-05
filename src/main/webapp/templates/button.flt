@@ -1,0 +1,7 @@
+<#list mylist?if_exists as root>
+<span id="${root.buttonId}">
+<a href="#" ${root.eventName}="javascript:${root.eventFun};return false;">
+	<img src="${base}/${root.imagePath}" width="16" height="16" border=0 align="middle" />${root.name}
+</a>
+</span>
+</#list>

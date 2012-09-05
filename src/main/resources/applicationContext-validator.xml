@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<description>
+		存放Hibernate-Validator相关配置,可以在国际化文件中使用如key:
+		NotBlank.userInfo.username 或是@NotBlank(message="用户名不能为空")
+	</description>
+
+	<!-- 国际化,并且可以批定文件编码,可以使用classpath: 或者WEB-INF/ 前缀 -->
+	<!-- Application Message Bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/i18n/messages</value>
+				<value>classpath:/i18n/ValidationMessages</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
+	</bean>
+
+	<!-- 用于启用Hibernate Validator,并且使用spring MessageSource替换java ResourceBundle -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="messageInterpolator" ref="messageInterpolator" />
+	</bean>
+
+	<bean id="messageInterpolator"
+		class="org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator">
+		<constructor-arg ref="resourceBundleLocator"></constructor-arg>
+	</bean>
+
+	<bean id="resourceBundleLocator" class="cn.com.rebirth.core.holder.MessageSourceResourceBundleLocator">
+		<property name="messageSource" ref="messageSource" />
+	</bean>
+</beans>

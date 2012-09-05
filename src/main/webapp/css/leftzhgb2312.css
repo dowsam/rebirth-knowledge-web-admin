@@ -1,0 +1,63 @@
+.menuTitle {
+	font-weight: bold;
+} /*MenuTitleStyle*/
+.cTD1 { /*MenuTitleStyle:OnClickPre or ClickEd*/
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	height: 27px;
+	background: url(../images/menu_bg.gif) no-repeat;
+	cursor: pointer;
+}
+
+.cTDonliNic { /*MenuTitleStyle:OnClickPre or ClickEd*/
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	height: 27px;
+	background: url(../images/menu_bg.gif) no-repeat;
+}
+
+.sTD1 { /*MenuTitleStyle:OnClickPre or ClickEd*/
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	height: 27px;
+	background: url(../images/menu_bg.gif) no-repeat;
+	cursor: pointer;
+}
+
+.oTD1 { /*MenuTitleStyle:OnMouseOver*/
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	height: 27px;
+	background: url(../images/menu_bg.gif) no-repeat;
+	cursor: pointer;
+}
+
+.cTD2 { /*MenuTitleStyle:OnMouseOver*/
+	text-indent: 66px;
+	color: #669A01;
+	font-weight: bold;
+	background: url(../images/menu_bg2.gif) no-repeat #FFF;
+	height: 26px;
+	cursor: pointer;
+}
+
+.sTD2 { /*Style:Clicked*/
+	text-indent: 66px;
+	color: #669A01;
+	background: url(../images/menu_bg2.gif) no-repeat #FFF;
+	font-weight: bold;
+	height: 26px;
+	cursor: pointer;
+}
+
+.oTD2 { /*SubMenu Style*/
+	text-indent: 66px;
+	color: #333;
+	height: 26px;
+	background: url(../images/menu_bg1.gif) no-repeat #ECF7FF;
+	cursor: pointer;
+}
